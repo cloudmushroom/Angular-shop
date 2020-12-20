@@ -1,0 +1,12 @@
+.imgGallery {
+  padding: 20px;
+}
+
+.imgGallery img {
+  width: 300px;
+  height: 200px;
+}
+
+.shop-button {
+  padding-bottom: 50px;
+}

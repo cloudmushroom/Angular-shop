@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="home.html"
+      ><img src="./assets/images/logo.png" alt="" width="80px"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarResponsive"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-center ml-auto">
+        <li class="nav-item">
+          <a routerLink="/" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/about" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/shop" class="nav-link">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/home" fragment="contact" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      <div class="navbar-right">
+        <a routerLink="/login" class="userIcon"
+          ><i class="fas fa-user-circle fa-2x"></i
+        ></a>
+        <a routerLink="/cart" class="cartIcon"
+          ><i class="fas fa-shopping-cart fa-2x"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,25 @@
+<div class="card mb-4 box-shadow">
+  <img
+    class="card-img-top"
+    src="./assets/images/bedRoom.jpg"
+    alt="Card image cap"
+  />
+  <div class="card-body text-center">
+    <p class="card-text font-weight-bold">{{ title }}</p>
+    <p class="card-text">{{ description }}</p>
+    <p class="card-text">{{ price | currency: "EUR" }}</p>
+    <div class="col-md-12 text-center">
+      <div class="btn-group">
+        <button type="button" class="btn btn-sm btn-dark product-btn addButton">
+          Add to Cart
+        </button>
+        <a
+          routerLink="/product-details"
+          class="btn btn-sm btn-outline-secondary product-btn"
+        >
+          View Details
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

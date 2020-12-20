@@ -1,0 +1,152 @@
+<body>
+  <div class="row">
+    <div class="col-md-12 offset-md-12">
+      <div class="checkout-card card">
+        <div class="card-header text-center">
+          <h3>Product Order Form</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="checkoutForm" (ngSubmit)="checkout()">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input
+                id="firstName"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    checkoutForm.get('firstName').touched &&
+                    checkoutForm.get('firstName').invalid
+                }"
+                formControlName="firstName"
+              />
+              <span class="invalid-feedback">First Name is required.</span>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input
+                id="lastName"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    checkoutForm.get('lastName').touched &&
+                    checkoutForm.get('lastName').invalid
+                }"
+                formControlName="lastName"
+              />
+              <span class="invalid-feedback">Last Name is required.</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    checkoutForm.get('email').touched &&
+                    checkoutForm.get('email').invalid
+                }"
+                formControlName="email"
+              />
+              <span class="invalid-feedback">
+                <span *ngIf="checkoutForm.get('email').hasError('required')"
+                  >Email is required.</span
+                >
+                <span *ngIf="checkoutForm.get('email').hasError('email')"
+                  >Email must be valid.</span
+                >
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input
+                type="phoneNumber"
+                id="phoneNumber"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    checkoutForm.get('phoneNumber').touched &&
+                    checkoutForm.get('phoneNumber').invalid
+                }"
+                formControlName="phoneNumber"
+              />
+              <span class="invalid-feedback">
+                <span
+                  *ngIf="checkoutForm.get('phoneNumber').hasError('required')"
+                  >Phone number is required.</span
+                >
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input
+                type="address"
+                id="address"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    checkoutForm.get('address').touched &&
+                    checkoutForm.get('address').invalid
+                }"
+                formControlName="address"
+              />
+              <span class="invalid-feedback">
+                <span *ngIf="checkoutForm.get('address').hasError('required')"
+                  >Address is required.</span
+                >
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="payment">Payment Method:</label>
+              <div class="form-check">
+                <div>
+                  <input
+                    class="form-check-input"
+                    id="creditCard"
+                    type="radio"
+                    value="creditCard"
+                    name="payment"
+                    formControlName="payment"
+                  />
+                  <label for="creditCard">Credit Card</label>
+                </div>
+
+                <div>
+                  <input
+                    class="form-check-input"
+                    id="paypal"
+                    type="radio"
+                    value="paypal"
+                    name="payment"
+                    formControlName="payment"
+                  />
+                  <label for="paypal">PayPal</label>
+                </div>
+                <div>
+                  <input
+                    class="form-check-input"
+                    id="delivery"
+                    type="radio"
+                    value="delivery"
+                    name="payment"
+                    formControlName="payment"
+                  />
+                  <label for="delivery">Payment on Delivery</label>
+                </div>
+              </div>
+
+              <div class="pt-5">
+                <button
+                  class="btn btn-dark btn-block"
+                  [disabled]="checkoutForm.invalid"
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
