@@ -1,16 +1,16 @@
 <div class="card mb-4 box-shadow">
   <img
     class="card-img-top"
-    src="./assets/images/bedRoom.jpg"
+    src="{{productJson.imageUrl}}"
     alt="Card image cap"
   />
   <div class="card-body text-center">
-    <p class="card-text font-weight-bold">{{ title }}</p>
-    <p class="card-text">{{ description }}</p>
-    <p class="card-text">{{ price | currency: "EUR" }}</p>
+    <p class="card-text font-weight-bold">{{productJson.name}}</p>
+    <p class="card-text">{{ productJson.description}}</p>
+    <p class="card-text">{{ productJson.price | currency: "EUR" }}</p>
     <div class="col-md-12 text-center">
       <div class="btn-group">
-        <button type="button" class="btn btn-sm btn-dark product-btn addButton">
+        <button type="button" (click)="addToCart(productJson)" class="btn btn-sm btn-dark product-btn addButton">
           Add to Cart
         </button>
         <a

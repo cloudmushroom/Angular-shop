@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+
+export interface NewsletterSubscriber {
+  email: string
+}
 
 @Component({
   selector: 'app-contact',
@@ -10,7 +15,7 @@ export class ContactComponent implements OnInit {
   model:any = {};
   newsletterModel:any= {};
 
-  constructor() { }
+  constructor(private db: AngularFirestore) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +25,12 @@ export class ContactComponent implements OnInit {
   }
 
   newsletter(){
-    console.log(this.newsletterModel);
+    var subscriber: NewsletterSubscriber = {
+      email: this.newsletterModel.newsletterEmail
+    }
+    this.db.collection<NewsletterSubscriber>("newsletterSubscribers").add(subscriber).then (res => console.log(this.newsletterModel.newsletterEmail + " subscribed."));
+    
   }
+
+
 }

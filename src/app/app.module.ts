@@ -25,6 +25,8 @@ import { RegisterComponent } from './components/pages/register/register.componen
 import { ProductDetailsComponent } from './components/pages/product-details/product-details.component';
 import { CartComponent } from './components/pages/cart/cart.component';
 import { CheckoutComponent } from './components/pages/checkout/checkout.component';
+import { fromEventPattern } from 'rxjs';
+import { AngularFireModule } from '@angular/fire';
 
 
 
@@ -58,6 +60,15 @@ import { CheckoutComponent } from './components/pages/checkout/checkout.componen
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp({
+    apiKey: "AIzaSyDq2sBVve1YY22sKBIE-hEXmhGJBlyEiEc",
+    authDomain: "shop-53e71.firebaseapp.com",
+    databaseURL: "https://shop-53e71-default-rtdb.firebaseio.com",
+    projectId: "shop-53e71",
+    storageBucket: "shop-53e71.appspot.com",
+    messagingSenderId: "950121214183",
+    appId: "1:950121214183:web:635c071bfcb5d7ea443242"
+    }),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD3UVCjQGFLmD5FtmE8NhObKnH7PZUJyxk'
     })

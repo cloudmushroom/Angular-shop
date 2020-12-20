@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 function symbolValidator(control) { //control = registerForm.get('password')
 if(control.hasError('required')) return null;
@@ -22,10 +23,22 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor(private builder:FormBuilder) { }
+  isSignedIn = false;
+
+  constructor(private builder:FormBuilder, private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
     this.buildForm();
+
+    if(localStorage.getItem('user')!==null)
+    this.isSignedIn = true;
+    else
+    this.isSignedIn = false;
+  }
+  async onSignup(email:string, password:string){
+    await this.firebaseService.signup(email,password).then(res => console.log("Registered"))
+    if(this.firebaseService.isLoggedin)
+    this.isSignedIn = true;
   }
 
   buildForm() {
@@ -37,7 +50,5 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  register() {
-    console.log(this.registerForm.value);
-  }
+
 }

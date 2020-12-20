@@ -1,4 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection, QuerySnapshot } from '@angular/fire/firestore';
+import { flatMap } from 'rxjs/operators';
+import  { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+export interface Product {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  imageUrl:string;
+}
 
 @Component({
   selector: 'app-product-list',
@@ -7,11 +19,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  product = 'Bedroom'
+  constructor(private db: AngularFirestore) { }
 
-  constructor() { }
+  products: Observable<Product[]>;
 
   ngOnInit(): void {
+    // var product: Product = {
+    //   id: 2,
+    //   name: "Chair",
+    //   description: "This is a chair",
+    //   price: 50,
+    //   imageUrl: "./assets/images/stolica_sto.jpg"
+    // }
+    // this.db.collection<Product>("products").add(product).then(res=>alert(res));
+   this.products = this.db.collection<Product>('products', ref => ref)
+                .valueChanges();
+
   }
 
 }

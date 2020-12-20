@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6" *ngFor="let i of [1,2,3,4,5,6,7]">
-      <app-product-item></app-product-item>
+    <div class="col-md-6" *ngFor="let productJson of products | async">
+      <app-product-item [productJson]="productJson"></app-product-item>
     </div>
 </div>

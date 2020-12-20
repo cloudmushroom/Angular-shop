@@ -11,6 +11,7 @@
               <label for="email">Email</label>
               <input
                 id="email"
+                type="email" #email
                 class="form-control"
                 [ngClass]="{
                   'is-invalid': loginForm.submitted && email.invalid
@@ -26,7 +27,7 @@
             <div class="form-group">
               <label for="password">Password</label>
               <input
-                type="password"
+                type="password" #password
                 id="password"
                 class="form-control"
                 [ngClass]="{
@@ -43,6 +44,7 @@
             <button
               class="btn btn-dark btn-block"
               [disabled]="loginForm.invalid"
+              (click)="onSignIn(email.value, password.value)"
             >
               Login
             </button>

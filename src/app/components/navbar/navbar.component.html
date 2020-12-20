@@ -27,12 +27,13 @@
         </li>
       </ul>
       <div class="navbar-right">
-        <a routerLink="/login" class="userIcon"
+        <a routerLink="/login" class="userIcon" *ngIf="!isLoggedIn()"
           ><i class="fas fa-user-circle fa-2x"></i
         ></a>
-        <a routerLink="/cart" class="cartIcon"
+        <a routerLink="/cart" class="cartIcon" *ngIf="isLoggedIn()"
           ><i class="fas fa-shopping-cart fa-2x"></i
         ></a>
+        <a class="pl-3 text-dark logout" (click)="logout()" *ngIf="isLoggedIn()"><i class="fas fa-sign-out-alt fa-2x"></i></a>
       </div>
     </div>
   </div>

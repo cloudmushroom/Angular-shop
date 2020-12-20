@@ -25,3 +25,7 @@
 .cartIcon {
   color: black;
 }
+
+.logout:hover {
+  cursor: pointer;
+}

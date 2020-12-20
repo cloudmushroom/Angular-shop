@@ -13,16 +13,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr *ngFor="let cartItemJson of cartItems | async">
               <td class="col-sm-8 col-md-6">
                 <div class="media">
                   <img
                     class="media-object"
-                    src="./assets/images/bedRoom.jpg"
+                    src="{{cartItemJson.imageUrl}}"
                     style="width: 72px; height: 72px"
                   />
                   <div class="media-body pl-2 pt-3">
-                    <h4>Bedroom</h4>
+                    <h4>{{cartItemJson.name}}</h4>
                   </div>
                 </div>
               </td>
@@ -32,23 +32,23 @@
                     type="text"
                     class="form-control"
                     id="exampleInputEmail1"
-                    value="3"
+                    value="{{cartItemJson.quantity}}"
                   />
                 </div>
               </td>
               <td class="col-sm-1 col-md-1 text-center">
                 <div class="pt-4">
-                  <strong>$4.87</strong>
+                  <strong>{{ cartItemJson.price | currency: "EUR" }}</strong>
                 </div>
               </td>
               <td class="col-sm-1 col-md-1 text-center">
                 <div class="pt-4">
-                  <strong>$14.87</strong>
+                  <strong>{{ cartItemJson.price * cartItemJson.quantity | currency: "EUR" }}</strong>
                 </div>
               </td>
               <td class="col-sm-1 col-md-1">
                 <div class="pt-3">
-                  <button type="button" class="btn btn-dark">
+                  <button type="button" class="btn btn-dark" (click)="deleteItem(cartItemJson.email, cartItemJson.itemId)">
                     <span><i class="fas fa-trash"></i></span>
                   </button>
                 </div>
@@ -60,7 +60,7 @@
               <td> </td>
               <td><h3>Total</h3></td>
               <td class="text-right">
-                <h3><strong>$31.53</strong></h3>
+                <h3><strong>{{400 | currency: "EUR"}}</strong></h3>
               </td>
             </tr>
             <tr>

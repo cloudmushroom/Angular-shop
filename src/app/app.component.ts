@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FirebaseService } from './services/firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'drugi-app';
+
+  constructor(public firebaseService: FirebaseService){
+
+  }
+
+  handleLogout() {
+    this.firebaseService.logout();
+  }
 }

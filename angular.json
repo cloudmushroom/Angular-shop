@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "drugi-app"
+    }
+  },
+  "defaultProject": "drugi-app",
+  "cli": {
+    "analytics": false
+  }
 }
