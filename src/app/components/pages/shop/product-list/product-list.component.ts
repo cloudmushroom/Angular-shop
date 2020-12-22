@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, QuerySnapshot } from '@angular/fire/firestore';
-import { flatMap } from 'rxjs/operators';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import  { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 export interface Product {
   id: number;
@@ -25,11 +23,11 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     // var product: Product = {
-    //   id: 2,
-    //   name: "Chair",
-    //   description: "This is a chair",
-    //   price: 50,
-    //   imageUrl: "./assets/images/stolica_sto.jpg"
+    //   id: 1,
+    //   name: "Work Desk",
+    //   description: "Best desk ever",
+    //   price: 100,
+    //   imageUrl: "./assets/images/radniSto.jpg"
     // }
     // this.db.collection<Product>("products").add(product).then(res=>alert(res));
    this.products = this.db.collection<Product>('products', ref => ref)

@@ -19,10 +19,6 @@ export class ProductItemComponent implements OnInit {
 
   @Input("productJson") productJson;
 
-  title = 'Bedroom';
-  description = 'This is the item description.'
-  price = '100'
-
   constructor(private db: AngularFirestore) { }
 
   ngOnInit(): void {

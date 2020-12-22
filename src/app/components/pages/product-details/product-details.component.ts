@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  @Input("productJson") productJson;
+ // @Input("productJson") productJson;
 
   constructor() { }
 

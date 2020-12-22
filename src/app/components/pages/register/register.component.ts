@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     this.isSignedIn = false;
   }
   async onSignup(email:string, password:string){
-    await this.firebaseService.signup(email,password).then(res => console.log("Registered"))
+    await this.firebaseService.signup(email,password).then(res => console.log("Successfully registered!"))
     if(this.firebaseService.isLoggedin)
     this.isSignedIn = true;
   }
@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email:['', [Validators.required, Validators.email]],
-      password:['', [Validators.required, symbolValidator, Validators.minLength(4)]]
+      password:['', [Validators.required, symbolValidator, Validators.minLength(6)]]
     })
   }
 

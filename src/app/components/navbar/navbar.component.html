@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white">
   <div class="container-fluid">
-    <a class="navbar-brand" href="home.html"
+    <a class="navbar-brand" routerLink="/"
       ><img src="./assets/images/logo.png" alt="" width="80px"
     /></a>
     <button
@@ -33,7 +33,9 @@
         <a routerLink="/cart" class="cartIcon" *ngIf="isLoggedIn()"
           ><i class="fas fa-shopping-cart fa-2x"></i
         ></a>
-        <a class="pl-3 text-dark logout" (click)="logout()" *ngIf="isLoggedIn()"><i class="fas fa-sign-out-alt fa-2x"></i></a>
+        <a class="pl-3 text-dark logout" (click)="logout()" *ngIf="isLoggedIn()"
+          ><i class="fas fa-sign-out-alt fa-2x"></i
+        ></a>
       </div>
     </div>
   </div>
