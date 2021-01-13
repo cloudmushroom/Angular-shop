@@ -25,6 +25,7 @@ export class FirebaseService {
     .then(res=>{
       this.isLoggedin = true
       localStorage.setItem('user',JSON.stringify(res.user))
+      this.router.navigate(['/home']);
     })
   }
   logout(){
